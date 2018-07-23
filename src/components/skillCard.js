@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Collapse from '@material-ui/core/Collapse';
-import Button from '@material-ui/core/Button';
+import {Card, CardMedia, CardContent, Collapse, Button} from '@material-ui/core/';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import TestImg from '../images/circle.jpg'
 import { Typography } from '../../node_modules/@material-ui/core';
 
 const styles = theme => ({
@@ -77,8 +72,9 @@ class SkillCard extends React.Component {
                             title="Contemplative Reptile"
                         />
                         <CardContent className={classes.content} >
-                                <Typography className={classes.type}>{this.state.type}</Typography>
+                                <Typography variant='body2' className={classes.type}>{this.state.type}</Typography>
                                 <Button
+                                    color={this.state.expanded ? 'secondary':'primary'}
                                     className={classnames(classes.expand, {
                                         [classes.expandOpen]: this.state.expanded,
                                     })}

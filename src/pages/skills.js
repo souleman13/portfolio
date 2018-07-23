@@ -2,7 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 
-import TestImg from '../images/circle.jpg'
+import GolangImg from '../images/golang.png'
+import MatrixImg from '../images/matrix.jpg'
+import ConstructionImg from '../images/construction.jpeg'
+import CssImg from '../images/css.png'
+import DatabaseImg from '../images/database.jpg'
+import GitImg from '../images/git.png'
+import NpmImg from '../images/npm.png'
+import ScrumImg from '../images/scrum.png'
+
 
 import SkillCard from '../components/skillCard'
 
@@ -31,7 +39,7 @@ class Skills extends React.Component {
         const skills = [
             {
                 type: 'Languages',
-                img: TestImg,
+                img: MatrixImg,
                 list: [
                     'JavaScript / Node.js',
                     'Go / golang',
@@ -39,7 +47,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Build Enviornments',
-                img: TestImg,
+                img: ConstructionImg,
                 list: [
                     'Docker',
                     'Webpack + Babel',
@@ -47,7 +55,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Npm Libraries',
-                img: TestImg,
+                img: NpmImg,
                 list: [
                     'React',
                     'Webpack',
@@ -61,7 +69,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'GoLang Packages',
-                img: TestImg,
+                img: GolangImg,
                 list: [
                     'database/sql',
                     'sqlmock',
@@ -72,19 +80,21 @@ class Skills extends React.Component {
                 ]
             },
             {
-                type: 'CSS Libraries',
-                img: TestImg,
+                type: 'Style Libraries',
+                img: CssImg,
                 list: [
+                    'JSS',
                     'Semantic-ui',
                     'Material-ui',
                     'Bootstrap',
-                    'SCSS / SaSS',
+                    'SCSS',
+                    'SaSS',
                     'LESS',
                 ]
             },
             {
                 type: 'Databases',
-                img: TestImg,
+                img: DatabaseImg,
                 list: [
                     'snowflakeDB',
                     'Amazon Web Services(AWS): S3, DynamoDB',
@@ -96,7 +106,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Development Strategy / Agile Methodology',
-                img: TestImg,
+                img: ScrumImg,
                 list: [
                     'JIRA',
                     'SCRUM',
@@ -108,7 +118,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Source Control / Code Clouds',
-                img: TestImg,
+                img: GitImg,
                 list: [
                     'Git',
                     'Github',

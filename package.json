@@ -5,19 +5,23 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "yarn clean && webpack --config webpack.config.js --progress",
-    "start": "webpack-dev-server --config webpack.config.js --open"
+    "deploy": "aws s3 sync dist/ s3://doug-soule-portfolio",
+    "start": "webpack-dev-server --config webpack.config.js"
   },
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "^1.1.0",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.2",
     "webpack": "^4.15.1",

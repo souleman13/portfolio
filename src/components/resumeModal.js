@@ -54,9 +54,6 @@ class ResumeModal extends React.Component {
                         helperText="Please select your document type"
                         margin="normal"
                     >
-                        {/* <MenuItem value={ResumePdf}>
-                            .pdf
-                        </MenuItem> */}
                         <MenuItem value={ResumeDocx}>
                             .docx
                         </MenuItem>

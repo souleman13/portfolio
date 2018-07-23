@@ -40,7 +40,7 @@ class Portfolio extends React.Component {
                     <GridListTile className={classes.description} cols={2} >
                         <Typography variant="display1" gutterBottom>Souleman</Typography>
                         <Typography variant="display1" gutterBottom>
-                            I am an out going individual that loves to spend an alot of spare time enjoying nature. My favorite coding solutions help make unify and add positive value to the world around me.
+                            I am an out going individual that loves to spend a lot of spare time enjoying nature. My favorite coding solutions help make unify and add positive value to the world around me.
                         </Typography>
                     </GridListTile>
                 </GridList>

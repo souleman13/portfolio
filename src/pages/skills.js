@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core/'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+import TestImg from '../images/circle.jpg'
+
+import SkillCard from '../components/skillCard'
 
 const styles = {
     root: {
@@ -20,26 +21,33 @@ const styles = {
 }
 
 class Skills extends React.Component {
+    constructor(props) {
+        super(props)
+
+    }
     render() {
         const { classes } = this.props
 
         const skills = [
             {
-                type: 'computer languages',
+                type: 'Languages',
+                img: TestImg,
                 list: [
                     'JavaScript / Node.js',
                     'Go / golang',
                 ]
             },
             {
-                type: 'Build Enviornments / Processes',
+                type: 'Build Enviornments',
+                img: TestImg,
                 list: [
                     'Docker',
                     'Webpack + Babel',
                 ]
             },
             {
-                type: 'Npm libraries',
+                type: 'Npm Libraries',
+                img: TestImg,
                 list: [
                     'React',
                     'Webpack',
@@ -52,7 +60,8 @@ class Skills extends React.Component {
                 ]
             },
             {
-                type: 'golang packages',
+                type: 'GoLang Packages',
+                img: TestImg,
                 list: [
                     'database/sql',
                     'sqlmock',
@@ -63,7 +72,8 @@ class Skills extends React.Component {
                 ]
             },
             {
-                type: 'CSS libraries / frameworks',
+                type: 'CSS Libraries',
+                img: TestImg,
                 list: [
                     'Semantic-ui',
                     'Material-ui',
@@ -74,6 +84,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Databases',
+                img: TestImg,
                 list: [
                     'snowflakeDB',
                     'Amazon Web Services(AWS): S3, DynamoDB',
@@ -85,6 +96,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Development Strategy / Agile Methodology',
+                img: TestImg,
                 list: [
                     'JIRA',
                     'SCRUM',
@@ -96,6 +108,7 @@ class Skills extends React.Component {
             },
             {
                 type: 'Source Control / Code Clouds',
+                img: TestImg,
                 list: [
                     'Git',
                     'Github',
@@ -104,26 +117,12 @@ class Skills extends React.Component {
             },
         ]
 
-        const SkillPanel = (props) => {
-            return (
-                <ExpansionPanel className={classes.title} >
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className={classes.heading}>{props.type}</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                        <ul>
-                        {props.list.map(skill =>(
-                            <li key={skill}>{skill}</li>
-                        ))}
-                        </ul>
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
-            )
-        }
-
         return (
             <div className={classes.root} >
-                {skills.map(s => (<SkillPanel key={s.type} type={s.type} list={s.list} />))}
+                
+                {skills.map(s => (
+                    <SkillCard key={s.type} type={s.type} img={s.img} list={s.list} />
+                ))}
             </div>
         )
     }

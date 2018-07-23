@@ -18,12 +18,17 @@ const styles = theme => ({
     flex: {
         flexGrow: 1,
     },
+    homeButton: {
+
+    },
     menuButton: {
+        backgroundColor: theme.palette.primary.dark,
         marginLeft: -12,
         marginRight: 20,
     },
     icon: {
-        marginRight: 5,
+        color: theme.palette.secondary.main,
+        marginRight: 6,
     }
 })
 
@@ -43,17 +48,16 @@ class TopNav extends React.Component {
     render() {
         const { classes } = this.props
         return (
-            <div className={classes.root}>
-                <AppBar position="static">
+                <AppBar className={classes.root} position="static">
                     <Toolbar>
-                        <IconButton className={classes.menuButton} href='/' color="inherit" aria-label="Menu">
-                            <HomeIcon />
+                        <IconButton className={classes.icon} href='/' color="inherit" aria-label="Menu">
+                            <HomeIcon/>
                         </IconButton>
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             Douglas Soule
                         </Typography>
 
-                        <Button variant='outlined' color='orange' className={classes.menuButton} href='portfolio' color="inherit">
+                        <Button variant='outlined' className={classes.menuButton} href='portfolio' color="inherit">
                             <ProfileIcon className={classes.icon} />
                             Portfolio
                         </Button>
@@ -72,8 +76,8 @@ class TopNav extends React.Component {
                             onClose={() => this.handleModal('openResume')}
                         />
                         <Button variant='outlined' className={classes.menuButton} onClick={() => this.handleModal('openContact')} color="inherit">
-                            <ContactIcon color='secondary' className={classes.icon} />
-                            Contact Me
+                            <ContactIcon className={classes.icon} />
+                            Contact
                          </Button>
                         <ContactModal
                             open={this.state.openContact}
@@ -81,7 +85,6 @@ class TopNav extends React.Component {
                         />
                     </Toolbar>
                 </AppBar>
-            </div>
         );
     }
 }

@@ -31,6 +31,7 @@ const styles = theme => ({
     },
     expand: {
         width: '100%',
+        color: theme.palette.primary.main,
         transform: 'rotate(0deg)',
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
@@ -38,6 +39,7 @@ const styles = theme => ({
         marginLeft: 'auto',
     },
     expandOpen: {
+        color: theme.palette.secondary.main,
         transform: 'rotate(180deg)',
     },
     avatar: {
@@ -74,7 +76,6 @@ class SkillCard extends React.Component {
                         <CardContent className={classes.content} >
                                 <Typography variant='body2' className={classes.type}>{this.state.type}</Typography>
                                 <Button
-                                    color={this.state.expanded ? 'secondary':'primary'}
                                     className={classnames(classes.expand, {
                                         [classes.expandOpen]: this.state.expanded,
                                     })}

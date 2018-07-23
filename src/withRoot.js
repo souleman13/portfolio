@@ -21,7 +21,7 @@ const theme = createMuiTheme({
       contrastText: 'black',
     },
   },
-});
+})
 
 //wraps app with all neccessary higher-order components
 function withRoot(Component) {

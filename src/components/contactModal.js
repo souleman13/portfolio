@@ -2,14 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { DialogTitle, Dialog, FormControl, InputLabel, Input, InputAdornment, TextField, Button } from '@material-ui/core'
-import { AccountCircle } from '@material-ui/icons'
+import { AccountCircle, PermPhoneMsg, Email } from '@material-ui/icons'
+
+
 
 const styles = {
     dialog: {
         display: 'flex',
         flexFlow: 'column',
         width: 300,
-        padding: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
+
     },
 };
 
@@ -20,6 +25,7 @@ class ContactModal extends React.Component {
             name: '',
             email: '',
             msg: '',
+            phone: 0,
         }
     }
     handleChange(key, value) {
@@ -27,9 +33,43 @@ class ContactModal extends React.Component {
             [key]: value,
         })
     }
+
+    validateForm() {
+        //check email
+        if (this.state.email == '' && this.state.email.includes('@') && this.state.email.includes('.')) {
+            return false
+        }
+        //check name
+        if (this.state.name == '' && this.state.name.length >= 2) {
+            return false
+        }
+        //check phone
+        if (this.state.phone == 0 && this.state.phone.toString().length < 10) {
+            return false
+        }
+        //check msg
+        if (this.state.msg == '') {
+            return false
+        }
+        return true
+    }
+
     sendContact() {
-        alert('Thanks for Contacting!')
-        this.props.onClose()
+        if (this.validateForm()) {
+            var template_params = {
+                "reply_to": this.state.email,
+                "from_name": this.state.name,
+                "phone": this.state.phone,
+                "message": this.state.msg,
+            }
+            var service_id = "default_service";
+            var template_id = "portfolio_contact";
+            emailjs.send(service_id, template_id, template_params);
+            alert('Thanks for Contacting!')
+            this.props.onClose()
+        }else{
+            alert('All Fields are required')
+        }
     }
     render() {
         const { classes, onClose, open } = this.props;
@@ -53,7 +93,18 @@ class ContactModal extends React.Component {
                             onChange={e => this.handleChange('email', e.target.value)}
                             startAdornment={
                                 <InputAdornment position="start">
-                                    <AccountCircle />
+                                    <Email />
+                                </InputAdornment>
+                            } />
+                    </FormControl>
+                    <FormControl>
+                        <InputLabel htmlFor="input-email">Phone</InputLabel>
+                        <Input id="input-phone"
+                            type='number'
+                            onChange={e => this.handleChange('phone', e.target.value)}
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <PermPhoneMsg />
                                 </InputAdornment>
                             } />
                     </FormControl>
@@ -65,7 +116,7 @@ class ContactModal extends React.Component {
                         onChange={e => this.handleChange('msg', e.target.value)}
                         margin="normal"
                     />
-                    <Button className={classes.menuButton} onClick={()=>this.sendContact()} color="inherit">Send</Button>
+                    <Button className={classes.menuButton} onClick={() => this.sendContact()} color="inherit">Send</Button>
                 </div>
             </Dialog>
         );

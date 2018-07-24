@@ -8,7 +8,7 @@ import ContactIcon from '@material-ui/icons/Email';
 import ProfileIcon from '@material-ui/icons/Person';
 import SkillIcon from '@material-ui/icons/Whatshot';
 
-import ContactModal from './contactInfoModal'
+import ContactModal from './contactModal'
 import ResumeModal from './resumeModal'
 
 const styles = theme => ({

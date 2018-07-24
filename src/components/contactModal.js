@@ -34,21 +34,25 @@ class ContactModal extends React.Component {
         })
     }
 
-    validateForm() {
+    validateEmail() {
         //check email
         if (this.state.email == '' && this.state.email.includes('@') && this.state.email.includes('.')) {
+            alert('Please Enter a Valid E-mail')
             return false
         }
         //check name
         if (this.state.name == '' && this.state.name.length >= 2) {
+            alert('Please Enter a Full Name')
             return false
         }
         //check phone
         if (this.state.phone == 0 && this.state.phone.toString().length < 10) {
+            alert('Please Enter a 10 digit phone number')
             return false
         }
         //check msg
         if (this.state.msg == '') {
+            alert('Please Enter Message')
             return false
         }
         return true
@@ -67,8 +71,6 @@ class ContactModal extends React.Component {
             emailjs.send(service_id, template_id, template_params);
             alert('Thanks for Contacting!')
             this.props.onClose()
-        }else{
-            alert('All Fields are required')
         }
     }
     render() {

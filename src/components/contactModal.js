@@ -59,17 +59,17 @@ class ContactModal extends React.Component {
     }
 
     sendContact() {
-        if (this.validateForm()) {
+        if (this.validateEmail()) {
             var template_params = {
                 "reply_to": this.state.email,
                 "from_name": this.state.name,
                 "phone": this.state.phone,
                 "message": this.state.msg,
             }
-            var service_id = "default_service";
-            var template_id = "portfolio_contact";
-            emailjs.send(service_id, template_id, template_params);
-            alert('Thanks for Contacting!')
+            var service_id = "default_service"
+            var template_id = "portfolio_contact"
+            emailjs.send(service_id, template_id, template_params)
+            alert('Success! Thanks for Contacting!')
             this.props.onClose()
         }
     }

@@ -56,7 +56,7 @@ class ProjectReel extends React.Component {
             },
             {
                 title: 'React-Apollo-Boilerplate',
-                link: 'https://github.com/souleman13/react-apollo-boilerplater_with_comments',
+                link: 'https://github.com/souleman13/react-apollo-boilerplate_with_comments',
                 img: GithubImg,
             },
         ]

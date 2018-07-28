@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { DialogTitle, Dialog, TextField, MenuItem, Button } from '@material-ui/core';
+import DownloadIcon from '@material-ui/icons/FileDownload';
 
 import ResumeDocx from '../files/resume.docx'
 import ResumePdf from '../files/resume.pdf'
+import PagesPdf from '../files/resume.pages'
 
 const styles = {
     dialog: {
@@ -55,10 +57,13 @@ class ResumeModal extends React.Component {
                         margin="normal"
                     >
                         <MenuItem value={ResumeDocx}>
-                            .docx
+                            Word (.docx)
                         </MenuItem>
                         <MenuItem value={ResumePdf}>
-                            .pdf
+                            PDF
+                        </MenuItem>
+                        <MenuItem value={PagesPdf}>
+                            Mac (.pages)
                         </MenuItem>
                     </TextField>
                     <Button
@@ -67,7 +72,7 @@ class ResumeModal extends React.Component {
                         download="Doug_Soule_Resume"
                         color="secondary"
                     >
-                        Send
+                        <DownloadIcon />
                     </Button>
                 </div>
             </Dialog>

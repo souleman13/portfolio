@@ -7,7 +7,7 @@ import ProjectReel from '../components/projectReel'
 import HobbyReel from '../components/hobbyReel'
 import ProfilePic from '../images/profilepic.jpeg'
 
-const styles = {
+const styles = theme => ({
     root: {
         paddingTop: 50,
         paddingBottom: 25,
@@ -29,7 +29,7 @@ const styles = {
     textblock: {
         paddingLeft: 10,
     }
-}
+})
 
 class Portfolio extends React.Component {
     render() {
@@ -41,8 +41,8 @@ class Portfolio extends React.Component {
                         <Avatar className={classes.pPic} src={ProfilePic} alt='profile_pic' />
                     </GridListTile>
                     <GridListTile className={classes.description} cols={2} >
-                        <Typography className={classes.textblock} variant="display1" gutterBottom>Souleman</Typography>
-                        <Typography className={classes.textblock} variant="display1" gutterBottom>
+                        <Typography className={classes.textblock} variant="display2" gutterBottom>Souleman</Typography>
+                        <Typography className={classes.textblock} variant="headline" gutterBottom>
                             I am an out going individual that loves to spend a lot of spare time enjoying nature. My favorite coding solutions help unify and add positive value to the world.
                         </Typography>
                     </GridListTile>

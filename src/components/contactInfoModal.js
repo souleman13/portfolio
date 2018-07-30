@@ -4,14 +4,14 @@ import { withStyles } from '@material-ui/core/styles'
 import { DialogTitle, Dialog, FormControl, InputLabel, Input, InputAdornment, TextField, Button, Typography } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
 
-const styles = {
+const styles = theme => ({
     dialog: {
         display: 'flex',
         flexFlow: 'column',
         width: 300,
         padding: 20,
     },
-};
+})
 
 class ContactModal extends React.Component {
     constructor(props) {

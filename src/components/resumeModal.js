@@ -8,7 +8,7 @@ import ResumeDocx from '../files/resume.docx'
 import ResumePdf from '../files/resume.pdf'
 import PagesPdf from '../files/resume.pages'
 
-const styles = {
+const styles = theme => ({
     dialog: {
         display: 'flex',
         flexFlow: 'column',
@@ -24,7 +24,7 @@ const styles = {
     submit: {
 
     }
-};
+})
 
 class ResumeModal extends React.Component {
     constructor(props) {

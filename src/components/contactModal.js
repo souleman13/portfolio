@@ -6,7 +6,7 @@ import { AccountCircle, PermPhoneMsg, Email } from '@material-ui/icons'
 
 
 
-const styles = {
+const styles = theme => ({
     dialog: {
         display: 'flex',
         flexFlow: 'column',
@@ -16,7 +16,7 @@ const styles = {
         paddingBottom: 20,
 
     },
-};
+})
 
 class ContactModal extends React.Component {
     constructor(props) {

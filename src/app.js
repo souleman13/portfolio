@@ -6,7 +6,7 @@ import withRoot from './withRoot';
 import TopNav from './components/topNav'
 import Router from './router'
 
-const styles = {}
+const styles = theme => ({})
 
 class App extends React.Component {
   constructor(props){

@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { Typography, GridList, GridListTile, GridListTileBar, Avatar } from '@material-ui/core/';
+import { Typography, GridList} from '@material-ui/core/';
+
+import HobbyTile from './hobbyTile'
 
 import SnowboarderImg from '../images/snowboarding.jpg'
 import MountainsImg from '../images/mountains.jpg'
 import PhysicsImg from '../images/physics.jpg'
 import AncientCivImg from '../images/ancientCiv.jpg'
 
-const styles = {
+const styles = theme => ({
     root: {
         paddingTop: 20,
     },
@@ -23,6 +25,11 @@ const styles = {
         height: 300,
         width: 300,
     },
+    paper: {
+        height: 300,
+        width: 300,
+        borderRadius: '50%',
+    },
     tile: {
         marginRight: 5,
     },
@@ -33,7 +40,7 @@ const styles = {
         background:
             'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
     },
-}
+})
 
 class HobbyReel extends React.Component {
     render() {
@@ -58,21 +65,6 @@ class HobbyReel extends React.Component {
                 img: AncientCivImg,
             },
         ]
-
-        const HobbyTile = (props) => {
-            return (
-                <GridListTile className={classes.tile}>
-                        <Avatar className={classes.image} src={props.img} alt='hobby_pic' />
-                    <GridListTileBar
-                        title={props.title}
-                        classes={{
-                            root: classes.titleBar,
-                            title: classes.title,
-                        }}
-                    />
-                </GridListTile>
-            )
-        }
 
         return (
             <div className={classes.root} >

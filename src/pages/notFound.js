@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography';
 
 
-const styles = {}
+const styles = theme => ({})
 
 class NotFound extends React.Component {
     render() {

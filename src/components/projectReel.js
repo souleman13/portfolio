@@ -7,7 +7,7 @@ import GridIcon from '@material-ui/icons/Visibility';
 import GithubImg from '../images/github.png'
 import BitbucketImg from '../images/bitbucket.jpg'
 
-const styles = {
+const styles = theme => ({
     root: {
         paddingTop: 20,
     },
@@ -32,7 +32,7 @@ const styles = {
         background:
             'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
     },
-}
+})
 
 class ProjectReel extends React.Component {
     render() {

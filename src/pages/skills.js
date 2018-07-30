@@ -14,7 +14,7 @@ import ScrumImg from '../images/scrum.png'
 
 import SkillCard from '../components/skillCard'
 
-const styles = {
+const styles = theme => ({
     root: {
         paddingTop: 20,
         display: 'flex',
@@ -26,7 +26,7 @@ const styles = {
     title: {
         width: 250,
     },
-}
+})
 
 class Skills extends React.Component {
     constructor(props) {

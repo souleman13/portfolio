@@ -39,7 +39,8 @@ class HobbyTile extends React.Component {
         const { classes } = this.props
         return (
             <GridListTile className={classes.tile}>
-                {this.state.showMore ? <Avatar className={classnames(classes.image, classes.links)}><Typography color='primary' variant='body1'>Links</Typography></Avatar> : <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />}
+            <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />
+                {/* {this.state.showMore ? <Avatar className={classnames(classes.image, classes.links)}><Typography color='primary' variant='body1'>Links</Typography></Avatar> : <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />} */}
                 <GridListTileBar
                     title={this.state.title}
                     classes={{

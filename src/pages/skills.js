@@ -46,11 +46,12 @@ class Skills extends React.Component {
                 ]
             },
             {
-                type: 'Build Enviornments',
+                type: 'Build & Deployment',
                 img: ConstructionImg,
                 list: [
                     'Docker',
                     'Webpack + Babel',
+                    'AWS: CloudFront, Route 53 (DNS), s3'
                 ]
             },
             {

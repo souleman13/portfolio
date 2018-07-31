@@ -26,6 +26,7 @@ const styles = theme => ({
 })
 
 class HobbyTile extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -35,12 +36,22 @@ class HobbyTile extends React.Component {
             links: props.links,
         }
     }
+
     render() {
+
         const { classes } = this.props
+        
         return (
             <GridListTile className={classes.tile}>
-            <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />
-                {/* {this.state.showMore ? <Avatar className={classnames(classes.image, classes.links)}><Typography color='primary' variant='body1'>Links</Typography></Avatar> : <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />} */}
+                {/* <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' /> */}
+                {
+                    this.state.showMore ?
+                        <Avatar className={classnames(classes.image, classes.links)}>
+                            <ul>
+                                {this.state.links.map(l => (<li key={l.name}><Typography color='primary' variant='title'><a href={l.link} target='_blank' >{l.name}</a></Typography></li>))}
+                            </ul>
+                        </Avatar> : <Avatar className={classes.image} src={this.state.img} alt='hobby_pic' />
+                }
                 <GridListTileBar
                     title={this.state.title}
                     classes={{

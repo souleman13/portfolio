@@ -10,7 +10,7 @@ import DatabaseImg from '../images/database.jpg'
 import GitImg from '../images/git.png'
 import NpmImg from '../images/npm.png'
 import ScrumImg from '../images/scrum.png'
-
+import AwsImg from '../images/AWS.jpg'
 
 import SkillCard from '../components/skillCard'
 
@@ -51,7 +51,16 @@ class Skills extends React.Component {
                 list: [
                     'Docker',
                     'Webpack + Babel',
-                    'AWS: CloudFront, Route 53 (DNS), s3'
+                ]
+            },
+            {
+                type: 'Amazon Web Services (AWS)',
+                img: AwsImg,
+                list: [
+                    'CloudFront',
+                    'Route 53 (DNS)',
+                    's3',
+                    'DynamoDB',
                 ]
             },
             {
@@ -98,11 +107,12 @@ class Skills extends React.Component {
                 img: DatabaseImg,
                 list: [
                     'snowflakeDB',
-                    'Amazon Web Services(AWS): S3, DynamoDB',
-                    'Microsoft: AzureSQL',
+                    'DynamoDB',
+                    'Azure SQL',
                     'Google: bigQuery',
                     'mongoDB',
                     'SQL',
+                    's3',
                 ]
             },
             {

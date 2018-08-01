@@ -14,8 +14,13 @@ const styles = theme => ({
         paddingLeft: 20,
         paddingRight: 20,
         paddingBottom: 20,
-
     },
+    icon: {
+        color: theme.palette.secondary.main,
+    },
+    button: {
+        color: theme.palette.primary.main,
+    }
 })
 
 class ContactModal extends React.Component {
@@ -82,9 +87,13 @@ class ContactModal extends React.Component {
                     <FormControl>
                         <InputLabel htmlFor="input-name">Full Name</InputLabel>
                         <Input id="input-name"
+                            placeholder='Slim Shady'
                             onChange={e => this.handleChange('name', e.target.value)}
+                            classes={{
+                                underline: classes.underline,
+                              }}
                             startAdornment={
-                                <InputAdornment position="start">
+                                <InputAdornment className={classes.icon} position="start">
                                     <AccountCircle />
                                 </InputAdornment>
                             } />
@@ -92,20 +101,22 @@ class ContactModal extends React.Component {
                     <FormControl>
                         <InputLabel htmlFor="input-email">E-mail</InputLabel>
                         <Input id="input-email"
+                            placeholder='no-reply@company.com'
                             onChange={e => this.handleChange('email', e.target.value)}
                             startAdornment={
-                                <InputAdornment position="start">
+                                <InputAdornment className={classes.icon} position="start">
                                     <Email />
                                 </InputAdornment>
                             } />
                     </FormControl>
                     <FormControl>
-                        <InputLabel htmlFor="input-email">Phone</InputLabel>
+                        <InputLabel htmlFor="input-phone">Phone</InputLabel>
                         <Input id="input-phone"
+                            placeholder='(369)8675-309'
                             type='number'
                             onChange={e => this.handleChange('phone', e.target.value)}
                             startAdornment={
-                                <InputAdornment position="start">
+                                <InputAdornment className={classes.icon} position="start">
                                     <PermPhoneMsg />
                                 </InputAdornment>
                             } />
@@ -118,7 +129,7 @@ class ContactModal extends React.Component {
                         onChange={e => this.handleChange('msg', e.target.value)}
                         margin="normal"
                     />
-                    <Button className={classes.menuButton} onClick={() => this.sendContact()} color="inherit">Send</Button>
+                    <Button className={classes.button} onClick={() => this.sendContact()} color="inherit">Send</Button>
                 </div>
             </Dialog>
         );

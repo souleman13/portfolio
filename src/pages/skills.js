@@ -98,7 +98,6 @@ class Skills extends React.Component {
                     'Material-ui',
                     'Bootstrap',
                     'SCSS',
-                    'SaSS',
                     'LESS',
                 ]
             },
@@ -123,6 +122,7 @@ class Skills extends React.Component {
                     'SCRUM',
                     'Kanban',
                     'Trunk Based Development',
+                    'SaaS',
                     'Continuous Integration / Delivery (CICD)',
                     'Remote',
                 ]

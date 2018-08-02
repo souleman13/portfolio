@@ -3,11 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packagejson = require('./package.json');
 const dependencies = Object.keys(packagejson.dependencies);
 
+
 module.exports = {
   mode: 'development',
   target: 'web',
 
   entry: {
+    polyfill: 'babel-polyfill',
+
     // 'app' is the entry point into our react app located in src/.index.js
     app: './src/index.js',
     // 'vendor' is the name of the bundle that contains all of our 3rd party code
@@ -25,7 +28,9 @@ module.exports = {
     // be at the root of dist
     publicPath: '/'
   },
-
+  node: {
+    fs: 'empty'
+  },
   // setting up babel-loader to compile our js/jsx files
   module: {
     rules: [

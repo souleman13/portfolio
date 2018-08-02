@@ -12,6 +12,7 @@ import NpmImg from '../images/npm.png'
 import ScrumImg from '../images/scrum.png'
 import AwsImg from '../images/AWS.jpg'
 
+import { GetSkills } from '../services/dynamoDB'
 import SkillCard from '../components/skillCard'
 
 const styles = theme => ({
@@ -31,9 +32,20 @@ const styles = theme => ({
 class Skills extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {
+            skills: []
+        }
+        
     }
+
+    componentDidMount(){
+        GetSkills().then(r => {
+            this.setState({skills: r})
+        })
+    }
+
     render() {
+        console.log(this.state.skills)
         const { classes } = this.props
 
         const skills = [
@@ -140,10 +152,11 @@ class Skills extends React.Component {
 
         return (
             <div className={classes.root} >
-                
-                {skills.map(s => (
+                {
+                    this.state.skills.map(s => (
                     <SkillCard key={s.type} type={s.type} img={s.img} list={s.list} />
-                ))}
+                ))
+                }
             </div>
         )
     }

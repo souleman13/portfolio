@@ -1,9 +1,10 @@
 import AWS from 'aws-sdk'
 import { unmarshalItem } from 'dynamodb-marshaler'
+import { aws_cred } from './credential'
 
 AWS.config.update({
-    accessKeyId: "AKIAJNVGCUEOFYRUFAYA",
-    secretAccessKey: "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",
+    accessKeyId: aws_cred.accessKeyId,
+    secretAccessKey: aws_cred.secretAccessKey,
     "region": "us-east-1" ,
     apiVersions: {
         dynamodb: '2012-08-10',

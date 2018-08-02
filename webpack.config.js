@@ -9,7 +9,6 @@ module.exports = {
   target: 'web',
 
   entry: {
-    polyfill: 'babel-polyfill',
 
     // 'app' is the entry point into our react app located in src/.index.js
     app: './src/index.js',

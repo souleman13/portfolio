@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import {Typography, } from '@material-ui/core/';
-import MountainImage from '../images/mountains.jpg'
 
 const styles = theme => ({
     root: {
-        background: `url(${MountainImage}) no-repeat center center fixed`,
+        background: `url(https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg) no-repeat center center fixed`,
         backgroundSize: 'cover',
         height: '93vh',
         display: 'flex',

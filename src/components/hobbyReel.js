@@ -4,11 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { Typography, GridList} from '@material-ui/core/';
 
 import HobbyTile from './hobbyTile'
-
-import SnowboarderImg from '../images/snowboarding.jpg'
-import MountainsImg from '../images/mountains.jpg'
-import PhysicsImg from '../images/physics.jpg'
-import AncientCivImg from '../images/ancientCiv.jpg'
+import { GetHobby } from '../services/dynamoDB'
 
 const styles = theme => ({
     root: {
@@ -43,85 +39,29 @@ const styles = theme => ({
 })
 
 class HobbyReel extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            hobbies: []
+        }
+        
+    }
+    componentDidMount(){
+        GetHobby().then(r => {
+            this.setState({hobbies: r})
+        })
+    }
     render() {
 
         const { classes } = this.props
 
-        const hobbies = [
-            {
-                title: 'Snowboarding',
-                img: SnowboarderImg,
-                links:[
-                    {
-                        name: 'Brighton Resort',
-                        link: 'http://www.brightonresort.com'
-                    },{
-                        name: 'SnowBird',
-                        link: 'http://www.snowbird.com'
-                    }
-                ]
-            },
-            {
-                title: 'Camping / Hiking',
-                img: MountainsImg,
-                links:[
-                    {
-                        name: 'Uinta-Wasatch-Cache',
-                        link: 'https://www.fs.usda.gov/main/uwcnf/home'
-                    },{
-                        name: 'Ashley National Forest',
-                        link: 'https://www.fs.usda.gov/main/ashley/home'
-                    },{
-                        name: 'Zion Nation Park',
-                        link: 'https://www.nps.gov/zion/index.htm'
-                    },{
-                        name: 'Canyonlands',
-                        link: 'https://www.nps.gov/cany/index.htm'
-                    },
-                    {
-                        name: 'Arches',
-                        link: 'https://www.nps.gov/arch/index.htm'
-                    },
-                    {
-                        name: 'Bryce Canyon',
-                        link: 'https://www.nps.gov/brca/index.htm'
-                    },
-                ]
-            },
-            {
-                title: 'Physics',
-                img: PhysicsImg,
-                links:[
-                    {
-                        name: 'Neil deGrasse Tyson',
-                        link: 'http://www.haydenplanetarium.org/tyson/'
-                    },{
-                        name: 'Vibration Science',
-                        link: 'https://www.britannica.com/science/vibration'
-                    },
-                ]
-            },
-            {
-                title: 'Ancient Cultures',
-                img: AncientCivImg,
-                links:[
-                    {
-                        name: 'Gaia',
-                        link: 'https://www.gaia.com'
-                    },
-                    {
-                        name: 'Egypt',
-                        link: 'https://www.history.com/topics/ancient-history/ancient-egypt'
-                    }
-                ]
-            },
-        ]
+        console.log(this.state.hobbies)
 
         return (
             <div className={classes.root} >
                 <Typography variant="display1" gutterBottom>Hobbies</Typography>
                 <GridList className={classes.gridList} cols={2.5}>
-                    {hobbies.map(h => (
+                    {this.state.hobbies.map(h => (
                         <HobbyTile key={h.title} title={h.title} img={h.img} links={h.links} />
                     ))}
                 </GridList>

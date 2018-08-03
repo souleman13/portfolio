@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography, GridList, GridListTile, Avatar } from '@material-ui/core/';
 
+import { GetPortfolio } from '../services/dynamoDB'
 import ProjectReel from '../components/projectReel'
 import HobbyReel from '../components/hobbyReel'
-import ProfilePic from '../images/profilepic.jpeg'
 
 const styles = theme => ({
     root: {
@@ -32,19 +32,34 @@ const styles = theme => ({
 })
 
 class Portfolio extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            nickname: '',
+            desc: '',
+            profilePic: ''
+        }
+    }
+    componentDidMount(){
+        GetPortfolio().then(r => {
+            this.setState({
+                nickname: r.nickname,
+                desc: r.desc,
+                profilePic: r.profilePic
+            })
+        })
+    }
     render() {
         const { classes } = this.props
         return (
             <div className={classes.root} >
                 <GridList className={classes.profile} cellHeight={300} cols={3} >
                     <GridListTile cols={1} >
-                        <Avatar className={classes.pPic} src={ProfilePic} alt='profile_pic' />
+                        <Avatar className={classes.pPic} src={this.state.profilePic} alt='profile_pic' />
                     </GridListTile>
                     <GridListTile className={classes.description} cols={2} >
-                        <Typography className={classes.textblock} variant="display2" gutterBottom>Souleman</Typography>
-                        <Typography className={classes.textblock} variant="headline" gutterBottom>
-                            I am an out going individual that loves to spend a lot of spare time enjoying nature. My favorite coding solutions help unify and add positive value to the world.
-                        </Typography>
+                        <Typography className={classes.textblock} variant="display2">{this.state.nickname}</Typography>
+                        <Typography className={classes.textblock} variant="headline">{this.state.desc}</Typography>
                     </GridListTile>
                 </GridList>
                 <ProjectReel />

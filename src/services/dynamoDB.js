@@ -20,3 +20,26 @@ export const GetSkills = () => {
     return dynamoDb.scan({ TableName: 'skills' }).promise()
         .then(response => response.Items.map(unmarshalItem))
 }
+
+export const GetPortfolio = () => {
+    var params = {
+        Key: {
+         "onlyOne": {
+           N: "1"
+          },
+        }, 
+        TableName: "portfolio"
+       };
+    return dynamoDb.getItem(params).promise()
+        .then(response =>  unmarshalItem(response.Item))
+}
+
+export const GetHobby = () => {
+    return dynamoDb.scan({ TableName: 'hobbyReel' }).promise()
+        .then(response => response.Items.map(unmarshalItem))
+}
+
+export const GetProjects = () => {
+    return dynamoDb.scan({ TableName: 'projectReel' }).promise()
+        .then(response => response.Items.map(unmarshalItem))
+}

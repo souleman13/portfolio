@@ -4,8 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { Typography, GridList, GridListTile, GridListTileBar, IconButton, Avatar } from '@material-ui/core/';
 import GridIcon from '@material-ui/icons/Visibility';
 
-import GithubImg from '../images/github.png'
-import BitbucketImg from '../images/bitbucket.jpg'
+import { GetProjects } from '../services/dynamoDB'
 
 const styles = theme => ({
     root: {
@@ -35,32 +34,23 @@ const styles = theme => ({
 })
 
 class ProjectReel extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            projects: []
+        }
+        
+    }
+    componentDidMount(){
+        GetProjects().then(r => {
+            this.setState({projects: r})
+        })
+    }
     render() {
         const { classes } = this.props
 
-        const projects = [
-            {
-                title: 'Portfolio',
-                link: 'https://github.com/souleman13/portfolio',
-                img: GithubImg,
-            },
-            {
-                title: 'Zift Payment Adapter',
-                link: 'https://bitbucket.org/Souleman13/zift-adapter/src/master/',
-                img: BitbucketImg,
-            },
-            {
-                title: 'Bar-App',
-                link: 'https://github.com/souleman13/Bar-App',
-                img: GithubImg,
-            },
-            {
-                title: 'React-Apollo-Boilerplate',
-                link: 'https://github.com/souleman13/react-apollo-boilerplate_with_comments',
-                img: GithubImg,
-            },
-        ]
-
+        
+        console.log(this.state.projects)
         const ProjectTile = (props) => {
             return (
                 <GridListTile className={classes.tile}>
@@ -85,7 +75,7 @@ class ProjectReel extends React.Component {
             <div className={classes.root} >
                 <Typography variant="display1" gutterBottom>Personal Projects</Typography>
                 <GridList className={classes.gridList} cols={2.5}>
-                    {projects.map(p => (
+                    {this.state.projects.map(p => (
                         <ProjectTile key={p.title} link={p.link} title={p.title} img={p.img} />
                     ))}
                 </GridList>

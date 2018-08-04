@@ -9,7 +9,6 @@ module.exports = {
   target: 'web',
 
   entry: {
-
     // 'app' is the entry point into our react app located in src/.index.js
     app: './src/index.js',
     // 'vendor' is the name of the bundle that contains all of our 3rd party code
